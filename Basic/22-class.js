@@ -131,3 +131,54 @@ console.log(person6.name)
 
 person6.bank = 'new A3R34432434'
 console.log(person6.bank)
+
+// Herencia
+
+class Animal {
+  constructor (name) {
+    this.name = name
+  }
+  sound () {
+    console.log('Emite un sonido generico')
+  }
+}
+
+class Dog extends Animal {
+  sound () {
+    console.log('GUAU')
+  }
+  run () {
+    console.log('El perro corre')
+  }
+}
+
+class Fish extends Animal {
+  constructor (name, size) {
+    super (name)
+    this.size = size
+  }
+  swim () {
+    console.log('El pez nada')
+  }
+  sound () {
+    console.log('GLUGLU')
+  }
+}
+
+let myDog = new Dog ('AndiDog')
+myDog.run ()
+myDog.sound ()
+
+let myFish = new Fish ('AndiFish', 10)
+myFish.swim ()
+myFish.sound ()
+
+// Metodos estaticos
+
+class MathOperation {
+  static sum (a, b) {
+    return a + b
+  }
+}
+
+console.log(MathOperation.sum(5, 10))
