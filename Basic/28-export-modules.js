@@ -2,11 +2,11 @@
 
 // Funciones
 
-export function add (a, b) {
-  return a + b
-}
+// export function add (a, b) {
+//   return a + b
+// }
 
-console.log(add(5, 10))
+// console.log(add(5, 10))
 
 // Propiedades
 
@@ -38,3 +38,37 @@ export class Circle {
 //     console.log('Mi clase')
 //   }
 // }
+
+export function multiplication (a, b) {
+  return a * b
+}
+
+export const age = 23
+
+export class Square {
+  constructor (side, width) {
+    this.side = side
+    this.width = width
+  }
+  area () {
+    return this.side**2
+  }
+}
+
+/*
+export default function division (a, b) {
+  return a / b
+}
+
+export default const book = 'Biblioteca de la media noche'
+
+export default class Triangle {
+  constructor (base, height) {
+    this.base = base
+    this.height = height
+  }
+  area () {
+    return (this.base * this.height) / 2
+  }
+}
+*/
