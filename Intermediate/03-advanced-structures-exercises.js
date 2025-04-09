@@ -36,9 +36,30 @@ console.log(squaredAndGrouped)
 
 // 4. Ordena un array de números de mayor a menor
 
+numbers = [10, 8, 5, 2, 1, 11, 34, 56, 9]
+
+let sortedArray = numbers.sort((a, b) => a - b)
+console.log(sortedArray)
+
 // 5. Dados dos sets, encuentra la unión, intersección y diferencia de ellos
 
+let set1 = new Set([1, 2, 3, 4, 5])
+let set2 = new Set([2, 3, 5, 6, 7])
+
+const union = new Set([...set1, ...set2])
+console.log(union)
+
+const intersection = new Set([...set1].filter(element => set2.has(element)))
+console.log(intersection)
+
+const difference = new Set([...set1].filter(element => !set2.has(element)))
+console.log(difference)
+
 // 6. Itera los resultados del ejercicio anterior
+
+union.forEach(element => console.log(element))
+intersection.forEach(element => console.log(element))
+difference.forEach(element => console.log(element))
 
 // 7. Crea un mapa que almacene información se usuarios (nombre, edad y email) e itera los datos
 
