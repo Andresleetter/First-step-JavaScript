@@ -21,6 +21,19 @@ console.log(newArray)
 
 // 3. Utiliza flat y flatMap para crear un ejemplo diferente al de la lección
 
+let deepArray = [[1, 2], [3, [4, 5, [6, 7]]]]
+console.log(deepArray)
+
+let flattenedOnce = deepArray.flat(1); 
+console.log(flattenedOnce)
+
+let flattenedTwice = deepArray.flat(2); 
+console.log(flattenedTwice)
+
+numbers = [1, 2, 3, 4, 5]
+let squaredAndGrouped = numbers.flatMap(num => [num, num ** 2])
+console.log(squaredAndGrouped)
+
 // 4. Ordena un array de números de mayor a menor
 
 // 5. Dados dos sets, encuentra la unión, intersección y diferencia de ellos
