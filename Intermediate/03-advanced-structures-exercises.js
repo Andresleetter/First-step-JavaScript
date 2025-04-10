@@ -63,8 +63,42 @@ difference.forEach(element => console.log(element))
 
 // 7. Crea un mapa que almacene información se usuarios (nombre, edad y email) e itera los datos
 
+const users = new Map([
+  ['1', {name: 'Andres Gomez', age: 23, email: 'agsgas.gmail.com'}],
+  ['2', {name: 'Antonio Almada', age: 27, email: 'aksndk.gmail.com'}],
+  ['3', {name: 'Fidelina Ovelar', age: 39, email: 'lbkcld.gmail.com'}]
+])
+
+users.forEach((value, key) => {
+  console.log('----------------------')
+  console.log(`ID: ${key}`)
+  console.log(`Nombre: ${value.name}`)
+  console.log(`Edad: ${value.age}`)
+  console.log(`Email: ${value.email}`)
+  console.log('----------------------')
+})
+
 // 8. Dado el mapa anterior, crea un array con los nombres
+
+const usersArray = Array.from(users.values().map(user => user.name))
+console.log(usersArray)
 
 // 9. Dado el mapa anterior, obtén un array con los email de los usuarios mayores de edad y transfórmalo a un set
 
+const usersAdults = new Set(
+  Array.from(users.values())
+  .filter(user => user.age >= 18)
+  .map(user => user.email)
+)
+
+console.log(usersAdults)
+
 // 10. Transforma el mapa en un objeto, a continuación, transforma el objeto en un mapa con clave el email de cada usuario y como valor todos los datos del usuario
+
+const usersObjet = Object.fromEntries(users)
+console.log(usersObjet)
+
+const usersMap = new Map(
+  Array.from(users.values().map(user => [user.email, user]))
+)
+console.log(usersMap)
