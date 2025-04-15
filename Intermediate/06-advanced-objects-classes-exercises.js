@@ -1,6 +1,32 @@
 // 1. Agregega una función al prototipo de un objeto
 
+let users = {
+  ID: 1234,
+  name: 'Andres',
+  age: 23,
+  cc: 12345678910,
+  creditCard () {
+    console.log(this.cc)
+  }
+}
+
+Object.setPrototypeOf(users, {
+  ...Object.getPrototypeOf(users),
+  getDetails() {
+    return `Usuario:\nID: ${this.ID}, Nombre: ${this.name}, Edad: ${this.age}`
+  }
+})
+
+console.log(users.getDetails())
+
 // 2. Crea un objeto que herede de otro
+
+let userJob = Object.create(users)
+userJob.job = 'Programer'
+
+console.log(userJob)
+console.log(users)
+console.log(userJob.getDetails())
 
 // 3. Define un método de instancia en un objeto
 
