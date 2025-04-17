@@ -30,6 +30,18 @@ console.log(userJob.getDetails())
 
 // 3. Define un método de instancia en un objeto
 
+function Users(name, age) {
+  this.name = name
+  this.age = age
+}
+
+Users.prototype.greet = function () {
+  console.log(`Hola, soy ${this.name} y tengo ${this.age} años`)
+}
+
+let newPerson = new Users("Andres", 23)
+newPerson.greet()
+
 // 4. Haz uso de get y set en un objeto
 
 // 5. Utiliza la operación assign en un objeto
