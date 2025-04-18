@@ -44,6 +44,22 @@ newPerson.greet()
 
 // 4. Haz uso de get y set en un objeto
 
+let person = {
+  _name: 'Andres Gomez',
+  age: 23,
+  get name () {
+    return `Nombre: ${this._name}`
+  },
+  set name (newName) {
+    this._name = newName
+  }
+}
+
+console.log(person.name)
+person.name = 'Juan Ovelar'
+
+console.log(person.name)
+
 // 5. Utiliza la operación assign en un objeto
 
 // 6. Crea una clase abstracta
