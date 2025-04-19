@@ -62,6 +62,12 @@ console.log(person.name)
 
 // 5. Utiliza la operación assign en un objeto
 
+let personCore = { name: "Andres" }
+let personDetails = { age: 23, alias: "AndresDev" }
+
+let fullPerson = Object.assign(personCore, personDetails)
+console.log(fullPerson)
+
 // 6. Crea una clase abstracta
 
 // 7. Utiliza polimorfismo en dos clases diferentes
