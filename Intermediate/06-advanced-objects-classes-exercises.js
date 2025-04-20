@@ -70,6 +70,37 @@ console.log(fullPerson)
 
 // 6. Crea una clase abstracta
 
+class Animal {
+  constructor() {
+    if (this.constructor === Animal) {
+      throw new Error("No se puede instanciar una clase abstracta.");
+    }
+  }
+
+  hacerSonido() {
+    throw new Error("El método hacerSonido debe ser implementado en la subclase.");
+  }
+}
+
+class Perro extends Animal {
+  hacerSonido() {
+    return "¡Guau!"
+  }
+}
+
+class Gato extends Animal {
+  hacerSonido() {
+    return "¡Miau!"
+  }
+}
+
+// Crear instancias de las subclases
+const perro = new Perro();
+console.log(perro.hacerSonido())
+
+const gato = new Gato();
+console.log(gato.hacerSonido())
+
 // 7. Utiliza polimorfismo en dos clases diferentes
 
 // 8. Implementa un Mixin
