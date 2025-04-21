@@ -94,14 +94,18 @@ class Gato extends Animal {
   }
 }
 
-// Crear instancias de las subclases
-const perro = new Perro();
-console.log(perro.hacerSonido())
-
-const gato = new Gato();
-console.log(gato.hacerSonido())
-
 // 7. Utiliza polimorfismo en dos clases diferentes
+
+// Función polimórfica que acepta cualquier tipo de Animal
+function emitirSonido(animal) {
+  console.log(animal.hacerSonido());
+}
+
+const perro = new Perro();
+const gato = new Gato();
+
+emitirSonido(perro)
+emitirSonido(gato)
 
 // 8. Implementa un Mixin
 
