@@ -73,41 +73,63 @@ console.log(fullPerson)
 class Animal {
   constructor() {
     if (this.constructor === Animal) {
-      throw new Error("No se puede instanciar una clase abstracta.");
+      throw new Error("No se puede instanciar una clase abstracta.")
     }
   }
 
   hacerSonido() {
-    throw new Error("El método hacerSonido debe ser implementado en la subclase.");
+    throw new Error("El método hacerSonido debe ser implementado en la subclase.")
   }
 }
 
+// 7. Utiliza polimorfismo en dos clases diferentes
+
 class Perro extends Animal {
+  constructor() {
+    super()
+    this.nombre = "Perro"
+  }
+
   hacerSonido() {
     return "¡Guau!"
   }
 }
 
 class Gato extends Animal {
+  constructor() {
+    super()
+    this.nombre = "Gato"
+  }
+
   hacerSonido() {
     return "¡Miau!"
   }
 }
 
-// 7. Utiliza polimorfismo en dos clases diferentes
-
-// Función polimórfica que acepta cualquier tipo de Animal
+// Función polimórfica
 function emitirSonido(animal) {
-  console.log(animal.hacerSonido());
+  console.log(animal.hacerSonido())
 }
 
-const perro = new Perro();
-const gato = new Gato();
+const perro = new Perro()
+const gato = new Gato()
 
 emitirSonido(perro)
 emitirSonido(gato)
 
 // 8. Implementa un Mixin
+const MovilidadMixin = {
+  mover() {
+    console.log(`${this.nombre} está moviéndose.`)
+  }
+}
+
+// Aplicamos el mixin sin redefinir las clases
+Object.assign(Perro.prototype, MovilidadMixin)
+Object.assign(Gato.prototype, MovilidadMixin)
+
+perro.mover()
+gato.mover()
 
 // 9. Crea un Singleton
 
