@@ -133,4 +133,34 @@ gato.mover()
 
 // 9. Crea un Singleton
 
+class Singleton {
+  constructor() {
+    // Verificamos si ya existe una instancia
+    if (Singleton.instance) {
+      return Singleton.instance // Retornamos la instancia existente
+    }
+
+    // Si no existe, creamos la instancia
+    Singleton.instance = this
+
+    // Propiedades de ejemplo
+    this.timestamp = new Date()
+  }
+
+  getInstance() {
+    return Singleton.instance
+  }
+}
+
+// Creamos la primera instancia
+const singleton1 = new Singleton()
+console.log("Instancia 1 - Timestamp:", singleton1.timestamp)
+
+// Intentamos crear una nueva instancia
+const singleton2 = new Singleton()
+console.log("Instancia 2 - Timestamp:", singleton2.timestamp)
+
+// Verificamos que ambas referencias apuntan a la misma instancia
+console.log(singleton1 === singleton2) // Imprime: true
+
 // 10. Desarrolla un Proxy
