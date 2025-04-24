@@ -164,3 +164,48 @@ console.log("Instancia 2 - Timestamp:", singleton2.timestamp)
 console.log(singleton1 === singleton2) // Imprime: true
 
 // 10. Desarrolla un Proxy
+
+// Objeto base
+const persona = {
+  nombre: "Andrés",
+  edad: 23
+}
+
+// Creamos un Proxy
+const proxyPersona = new Proxy(persona, {
+  // Interceptamos las lecturas de propiedades
+  get(target, prop) {
+    if (prop in target) {
+      return `La propiedad '${prop}' tiene el valor: ${target[prop]}`
+    } else {
+      return `La propiedad '${prop}' no existe en el objeto.`
+    }
+  },
+
+  // Interceptamos las escrituras de propiedades
+  set(target, prop, value) {
+    if (typeof value === "number" && prop === "edad") {
+      target[prop] = value
+      console.log(`La propiedad '${prop}' se ha actualizado a: ${value}`)
+      return true
+    } else if (prop === "edad") {
+      console.log("La edad debe ser un número.")
+      return false
+    } else {
+      target[prop] = value
+      console.log(`La propiedad '${prop}' se ha añadido con el valor: ${value}`)
+      return true
+    }
+  }
+})
+
+// Prueba del Proxy
+console.log(proxyPersona.nombre)
+console.log(proxyPersona.edad)
+console.log(proxyPersona.apellido)
+
+proxyPersona.edad = 35
+proxyPersona.edad = "treinta y cinco"
+proxyPersona.apellido = "Gómez"
+
+console.log(proxyPersona.apellido)
